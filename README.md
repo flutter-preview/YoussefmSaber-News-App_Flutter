@@ -4,12 +4,12 @@ This is a beginner-friendly news app developed using the Flutter framework. The 
 
   ## Features
   
-    - Fetches news articles from an API.
-    - Displays a list of news articles with titles, descriptions, and images.
-    - Allows users to tap on an article to view the full details in a separate screen.
-    - Supports pagination to load more articles as the user scrolls.
-    - Implements a search functionality to look for specific news articles.
-    - Provides a simple and intuitive user interface.
+  - Fetches news articles from an API.
+  - Displays a list of news articles with titles, descriptions, and images.
+  - Allows users to tap on an article to view the full details in a separate screen.
+  - Supports pagination to load more articles as the user scrolls.
+  - Implements a search functionality to look for specific news articles.
+  - Provides a simple and intuitive user interface.
   
   ## Installation
   
@@ -73,4 +73,4 @@ This is a beginner-friendly news app developed using the Flutter framework. The 
    - Various open-source packages were used to simplify development and enhance the app's functionality.
 
   ## Contact
-    For questions or suggestions, contact the project maintainer at youssef.mu.saber@gmail.com
+  For questions or suggestions, contact the project maintainer at youssef.mu.saber@gmail.com

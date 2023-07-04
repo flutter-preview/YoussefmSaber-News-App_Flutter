@@ -1,47 +1,39 @@
+import 'package:api_request/shared/cubit/cubit.dart';
+import 'package:api_request/shared/cubit/states.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NewsLayout extends StatelessWidget {
+
+  
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const SafeArea(
-        child: Text('asd'),
-      ),
-      bottomNavigationBar: NavigationBar(
-        backgroundColor: Colors.white70,
-        onDestinationSelected: (index) {},
-        destinations: const [
-          NavigationDestination(
-              selectedIcon: Icon(
-                Icons.business_center_outlined,
-                color: Colors.blueAccent,
-              ),
-              icon: Icon(
-                Icons.business_center_outlined,
-                color: Colors.grey,
-              ),
-              label: 'Business'),
-          NavigationDestination(
-              selectedIcon: Icon(
-                Icons.science_outlined,
-                color: Colors.blueAccent,
-              ),
-              icon: Icon(
-                Icons.science_outlined,
-                color: Colors.grey,
-              ),
-              label: 'Science'),
-          NavigationDestination(
-              selectedIcon: Icon(
-                Icons.sports_football_outlined,
-                color: Colors.blueAccent,
-              ),
-              icon: Icon(
-                Icons.sports_football_outlined,
-                color: Colors.grey,
-              ),
-              label: 'Sports'),
-        ],
+    return BlocProvider(
+      create: (context) => NewsCubit(),
+      child: BlocConsumer<NewsCubit, NewsStates>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          var cubit = NewsCubit.get(context);
+          return  Scaffold(
+            appBar: AppBar(
+              actions: [
+                IconButton(onPressed: (){}, icon: Icon(Icons.search, color: Colors.grey,))
+              ],
+            ),
+            body: SafeArea(
+              child: cubit.screens[cubit.selectedScreen],
+            ),
+            bottomNavigationBar: BottomNavigationBar(
+              currentIndex: cubit.selectedScreen,
+              type: BottomNavigationBarType.fixed,
+              onTap: (index) {
+                cubit.changeBottomNavigation(index);
+                print(index);
+              },
+              items: cubit.navigationItems
+            ),
+          );
+        },
       ),
     );
   }
